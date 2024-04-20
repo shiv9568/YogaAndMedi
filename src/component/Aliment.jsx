@@ -8,7 +8,7 @@ const Aliment = () => {
                 <h1 className='text-center text-5xl font-medium'>𝕾𝖊𝖑𝖊𝖈𝖙 𝕬𝖎𝖑𝖒𝖊𝖓𝖙</h1>
             </div>
             <div className='mt-8 flex'>
-                <div>
+                <div className='p-5 shadow-2xl'>
 
                     <a href="/heart" className="block max-w-sm p-6  border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
 
@@ -17,7 +17,7 @@ const Aliment = () => {
                     </a>
 
                 </div>
-                <div>
+                <div className='p-5 shadow-2xl' >
                     <a href="/digestive" className="block max-w-sm p-6  border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
 
                         <img src="gallery/digestive.jpg" alt="" className='w-[45vw] h-[29vh]' />
@@ -25,7 +25,7 @@ const Aliment = () => {
                     </a>
 
                 </div>
-                <div>
+                <div className='p-5  shadow-2xl'>
 
                     <a href="/asthma" className="block max-w-sm p-6  border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
 
@@ -34,7 +34,7 @@ const Aliment = () => {
                     </a>
 
                 </div>
-                <div>
+                <div className='p-5 shadow-2xl'>
 
                     <a href="/anxiety" className="block max-w-sm p-6  border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
 
@@ -42,7 +42,7 @@ const Aliment = () => {
                         <h1 className="font-normal text-gray-700 dark:text-gray-400">Anxiety</h1>
                     </a>
                 </div>
-                <div>
+                <div className='p-5 shadow-2xl '>
 
                     <a href="/jointpain" className="block max-w-sm p-6  border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
 

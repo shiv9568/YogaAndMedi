@@ -15,7 +15,7 @@ const Home = () => {
                 <div className="mr-20">
                 <h1 className='text-9xl mt-28'>yoga</h1>
                     <h2 className='text-4xl mt-6'>𝓪𝓷𝓭 𝓶𝓮𝓭𝓲𝓽𝓪𝓽𝓲𝓸𝓷</h2>
-                <AwesomeButton type="primary" className='mt-4 text-xl magnify'>Book Today</AwesomeButton>
+                <a href="/booktoday"><AwesomeButton type="primary" className='mt-4 text-xl magnify'>Book Today</AwesomeButton></a>
                 </div>
             </div>
         
