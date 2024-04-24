@@ -1,7 +1,6 @@
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 import React, { Component, useEffect, useState } from "react";
-import AOS from "aos";
-import "aos/dist/aos.css";
+
 import Activity from './component/Activity';
 import Aliment from './pages/Aliment';
 import Anxiety from './pages/Anxiety';
@@ -31,8 +30,7 @@ import Teacher5 from './pages/Teacher5';
 import Teacher6 from './pages/Teacher6';
 import Pricing from './component/Pricing';
 import Classes from './component/Classes';
-import { motion } from "framer-motion"
-import { useInView } from 'react-intersection-observer';
+
 import Pranayam from './pages/Pranayam';
 import Surya from './pages/Surya';
 import Cobra from './pages/Cobra';
@@ -42,25 +40,9 @@ import Pari from './pages/Pari';
 
 
 function App() {
-  React.useEffect(() => {
-    AOS.init({
-      offset: 100,
-      duration: 800,
-      easing: "ease-in-sine",
-      delay: 100,
-    });
-    AOS.refresh();
-  }, []);
-  const [ref, inView] = useInView({
-    triggerOnce: true, // Change this to false if you want the animation to trigger again whenever it comes in view
-  });
+ 
   return (
-    <motion.div
-      ref={ref}
-      initial={{ opacity: 0, x: -100 }}
-      animate={{ opacity: inView ? 1 : 0, x: inView ? 0 : -100 }}
-      transition={{ duration: 2 }}
-    >
+    <>
     <Navbar/>
       <Router>
         <Routes>
@@ -108,7 +90,7 @@ function App() {
           }/>
         </Routes>
       </Router>
-    </motion.div>
+    </>
   )
 }
 
