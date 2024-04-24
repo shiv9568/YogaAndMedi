@@ -57,3 +57,28 @@
 .magnify:hover {
   transform: scale(1.5);
 }
+.transihome{
+  transition: hello;
+}
+@keyframes hello {
+  0% {
+      top: 0px;
+      background: red;
+      width: 100px;
+    }
+  
+    100% {
+      top: 200px;
+      background: yellow;
+      width: 300px;
+    }
+}
+.bg1{
+background-image: url(./assets/images/benefitBg.png);
+background-repeat: no-repeat;
+background-size: cover;
+}
+.gallery{
+  background-image: url(./assets/images/joinMainBg.png);
+ 
+}

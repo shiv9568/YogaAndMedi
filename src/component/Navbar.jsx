@@ -14,6 +14,7 @@ const Navbar = () => {
                     </a>
                     <a href="/teacher"><li className='text-xl font-semibold mt-1 cursor-pointer magnify list-none'>Teacher</li></a>
                     <a href="/activityfud"><li className='text-xl font-semibold mt-1 cursor-pointer magnify list-none'>Activity</li></a>
+                    <a href="/pricing"><li className='text-xl font-semibold mt-1 cursor-pointer magnify list-none'>Pricing</li></a>
                     <li className='text-xl font-semibold mt-1 cursor-pointer magnify list-none'>Contact</li>
                     
                 </ul>

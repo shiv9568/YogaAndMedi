@@ -1,6 +1,7 @@
 import React, { useRef, useEffect } from 'react';
 import './Activity.css';
 
+
 const Activity = () => {
   const songRef = useRef(null);
   const playRef = useRef(null);
@@ -13,11 +14,11 @@ const Activity = () => {
     if (songRef.current.paused) {
       songRef.current.play();
       videoRef.current.play();
-      playRef.current.src = "./svg/pause.svg";
+      playRef.current.src = "/svg/pause.svg";
     } else {
       songRef.current.pause();
       videoRef.current.pause();
-      playRef.current.src = "./svg/play.svg";
+      playRef.current.src = "/svg/play.svg";
     }
   };
 
@@ -35,7 +36,7 @@ const Activity = () => {
     });
 
     songRef.current.ontimeupdate = () => {
-      if (!songRef.current.duration) return; 
+      if (!songRef.current.duration) return;
 
       let currentTime = songRef.current.currentTime;
       let elapsed = fakeDuration - currentTime;
@@ -49,7 +50,7 @@ const Activity = () => {
       if (currentTime >= fakeDuration) {
         songRef.current.pause();
         songRef.current.currentTime = 0;
-        playRef.current.src = "./svg/play.svg";
+        playRef.current.src = "/svg/play.svg";
         videoRef.current.pause();
       }
     };
@@ -77,7 +78,7 @@ const Activity = () => {
     <div className="app">
       <div className="vid-container">
         <video loop ref={videoRef}>
-          <source src="./video/rain.mp4" type="video/mp4" />
+          <source src="/video/rain.mp4" type="video/mp4" />
         </video>
       </div>
 
@@ -89,9 +90,9 @@ const Activity = () => {
 
       <div className="player-container">
         <audio className="song" ref={songRef}>
-          <source src="./sounds/rain.mp3" />
+          <source src="/sounds/rain.mp3" />
         </audio>
-        <img src="./svg/play.svg" alt="play" className="play" ref={playRef} />
+        <img src="/svg/play.svg" alt="play" className="play" ref={playRef} />
 
         <svg className="track-outline" width="453" height="453" viewBox="0 0 453 453" fill="none"
           xmlns="http://www.w3.org/2000/svg" ref={outlineRef}>
@@ -106,11 +107,11 @@ const Activity = () => {
       </div>
 
       <div className="sound-picker">
-        <button onClick={selectSound} data-sound="./sounds/rain.mp3" data-video="./video/rain.mp4">
-          <img src="./svg/rain.svg" alt="rain" />
+        <button onClick={selectSound} data-sound="/sounds/rain.mp3" data-video="/video/rain.mp4">
+          <img src="/svg/rain.svg" alt="rain" />
         </button>
-        <button onClick={selectSound} data-sound="./sounds/beach.mp3" data-video="./video/beach.mp4">
-          <img src="./svg/beach.svg" alt="beach" />
+        <button onClick={selectSound} data-sound="/sounds/beach.mp3" data-video="/video/beach.mp4">
+          <img src="/svg/beach.svg" alt="beach" />
         </button>
       </div>
     </div>

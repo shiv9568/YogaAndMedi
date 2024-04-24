@@ -57,7 +57,7 @@ const Blog = () => {
 
     return (
         <>
-        <div className='p-5 mb-16 mt-7' id='#gallery'>
+        <div className='p-5 mb-16 mt-7 gallery' id='#gallery'>
                 <h1 className='text-center text-6xl font-semibold'>𝕸𝖞 𝕲𝖆𝖑𝖑𝖊𝖗𝖞</h1>
         </div>
             {imageArray}

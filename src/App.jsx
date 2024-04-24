@@ -1,36 +1,66 @@
-import { useState } from 'react'
-import Navbar from './component/Navbar'
-import Home from './component/Home'
-import Blog from './component/Blog'
-import Aliment from './component/Aliment'
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Digestive from './component/Digestive'
-import Heart from './component/Heart'
-import Asthma from './component/Asthma'
-import Anxiety from './component/Anxiety'
-import Jointpain from './component/Jointpain'
-import Activity from './component/Activity'
-import Meditation from './component/Meditation'
-import Article from './component/Article'
-import Article1 from './pages/Article1'
-import Article2 from './pages/Article2'
-import Article3 from './pages/Article3'
-import Article4 from './pages/Article4'
-import Article5 from './pages/Article5'
-import Article6 from './pages/Article6'
-import Teacher1 from './pages/Teacher1'
-import Teacher2 from './pages/Teacher2'
-import Teacher3 from './pages/Teacher3'
-import Teacher4 from './pages/Teacher4'
-import Teacher5 from './pages/Teacher5'
-import Teacher6 from './pages/Teacher6'
-import Teacher from './component/Teacher'
-import Book from './component/Book'
+import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
+import React, { Component, useEffect, useState } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import Activity from './component/Activity';
+import Aliment from './pages/Aliment';
+import Anxiety from './pages/Anxiety';
+import Article from './component/Article';
+import Asthma from './pages/Asthma';
+import Benefits from './component/Benefits';
+import Blog from './component/Blog';
+import Book from './component/Book';
+import Digestive from './pages/Digestive';
+import Heart from './pages/Heart';
+import Home from './component/Home';
+import Jointpain from './pages/Jointpain';
+import Meditation from './component/Meditation';
+import Navbar from './component/Navbar';
+import Teacher from './component/Teacher';
+import Article1 from './pages/Article1';
+import Article2 from './pages/Article2';
+import Article3 from './pages/Article3';
+import Article4 from './pages/Article4';
+import Article5 from './pages/Article5';
+import Article6 from './pages/Article6';
+import Teacher1 from './pages/Teacher1';
+import Teacher2 from './pages/Teacher2';
+import Teacher3 from './pages/Teacher3';
+import Teacher4 from './pages/Teacher4';
+import Teacher5 from './pages/Teacher5';
+import Teacher6 from './pages/Teacher6';
+import Pricing from './component/Pricing';
+import Classes from './component/Classes';
+import { motion } from "framer-motion"
+import { useInView } from 'react-intersection-observer';
+import Pranayam from './pages/Pranayam';
+import Surya from './pages/Surya';
+import Cobra from './pages/Cobra';
+import Balasan from './pages/Balasan';
+import Pari from './pages/Pari';
+
 
 
 function App() {
+  React.useEffect(() => {
+    AOS.init({
+      offset: 100,
+      duration: 800,
+      easing: "ease-in-sine",
+      delay: 100,
+    });
+    AOS.refresh();
+  }, []);
+  const [ref, inView] = useInView({
+    triggerOnce: true, // Change this to false if you want the animation to trigger again whenever it comes in view
+  });
   return (
-    <>
+    <motion.div
+      ref={ref}
+      initial={{ opacity: 0, x: -100 }}
+      animate={{ opacity: inView ? 1 : 0, x: inView ? 0 : -100 }}
+      transition={{ duration: 2 }}
+    >
     <Navbar/>
       <Router>
         <Routes>
@@ -55,10 +85,22 @@ function App() {
           <Route path={"/teacher/4"} element={<Teacher4 />}/>
           <Route path={"/teacher/5"} element={<Teacher5 />}/>
           <Route path={"/teacher/6"} element={<Teacher6 />}/>
+          <Route path={"/heart/pranayam"} element={<Pranayam />} />
+          <Route path={"/heart/suryanamaskar"} element={<Surya />} />
+          <Route path={"/heart/cobra"} element={<Cobra />} />
+          <Route path={"/digestive/balasana"} element={<Balasan />} />
+          <Route path={"/digestive/paripurnanavasana"} element={<Pari />} />
+          <Route path={"/digestive/pranayam"} element={<Pranayam />} />
+
           <Route path={"/booktoday"} element={<Book />}/>
+          <Route path={"/pricing"} element={<Pricing />}/>
+          <Route path={"/classes"} element={<Classes />}/>
           <Route path={"/"} element={
             <>
               <Home/>
+              
+              <br />
+              <Benefits/>
               <Aliment/>
               {/* <Meditation/> */}
               <Blog/>
@@ -66,7 +108,7 @@ function App() {
           }/>
         </Routes>
       </Router>
-    </>
+    </motion.div>
   )
 }
 
