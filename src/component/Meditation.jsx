@@ -43,7 +43,7 @@ const Meditation = () => {
                     <CardMedia
                         component="img"
                         sx={{ width: 151 }}
-                        image="/Meditation_img/med1.png"
+                        image="/Meditation_img/medi1.jpeg"
                         alt="Live from space album cover"
                     />
                 </Card>
@@ -67,7 +67,7 @@ const Meditation = () => {
                     <CardMedia
                         component="img"
                         sx={{ width: 151 }}
-                        image="/Meditation_img/med1.png"
+                        image="/Meditation_img/medi2.jpeg"
                         alt="Live from space album cover"
                     />
                 </Card>
@@ -93,7 +93,7 @@ const Meditation = () => {
                     <CardMedia
                         component="img"
                         sx={{ width: 151 }}
-                        image="/Meditation_img/med1.png"
+                        image="/Meditation_img/medi2.jpeg"
                         alt="Live from space album cover"
                     />
                 </Card>
@@ -119,7 +119,7 @@ const Meditation = () => {
                     <CardMedia
                         component="img"
                         sx={{ width: 151 }}
-                        image="/Meditation_img/med1.png"
+                        image="/Meditation_img/medi1.jpeg"
                         alt="Live from space album cover"
                     />
                 </Card>
@@ -145,7 +145,7 @@ const Meditation = () => {
                     <CardMedia
                         component="img"
                         sx={{ width: 151 }}
-                        image="/Meditation_img/med1.png"
+                        image="/Meditation_img/medi2.jpeg"
                         alt="Live from space album cover"
                     />
                 </Card>
@@ -171,7 +171,7 @@ const Meditation = () => {
                     <CardMedia
                         component="img"
                         sx={{ width: 151 }}
-                        image="/Meditation_img/med1.png"
+                        image="/Meditation_img/medi3.jpeg"
                         alt="Live from space album cover"
                     />
                 </Card>

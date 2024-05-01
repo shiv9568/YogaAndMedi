@@ -84,7 +84,7 @@ function App() {
               <br />
               <Benefits/>
               <Aliment/>
-              {/* <Meditation/> */}
+              <Meditation/>
               <Blog/>
             </>
           }/>

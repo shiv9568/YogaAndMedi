@@ -82,7 +82,7 @@ const Anxiety = () => {
                     <h2>Yoga poses for better digestion: </h2>
 
                     <div className="asanaCollection">
-                        <div className="box"><img src="../images/anulom-vulom.jpg" alt="" /><span><a href="../html/pranayam.html">Pranayam</a></span></div>
+                        <div className="box"><img src="../images/anulom-vulom.jpg" alt="" /><span><a href="/digestive/pranayam">Pranayam</a></span></div>
                     </div>
                 </div>
             </div>

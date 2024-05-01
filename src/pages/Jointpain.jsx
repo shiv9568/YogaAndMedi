@@ -6,7 +6,7 @@ const Jointpain = () => {
     <div>
         <div className="title">
             <div id="mainPage">
-                <a href="../index.html">
+                <a href="/">
                     <span>
                         &#x2190;
                     </span>
@@ -53,9 +53,9 @@ const Jointpain = () => {
                 <h2>Yoga Poses To Get Rid Of Body/Muscle Pain: </h2>
 
                 <div className="asanaCollection">
-                    <div className="box"><img src="../images/step3-suryanamaskar.jpg" alt="" /><span><a href="../html/suryanamaskar.html">Suryanamaskar</a></span></div>
-                    <div className="box"><img src="../images/step1-suryanamaskar.jpg" alt="" /><span><a href="../html/tadasana.html">Tadasana</a></span></div>
-                    <div className="box"><img src="../images/varkasana.jpg" alt="" /><span><a href="../html/varkasana.html">Tree Pose</a></span></div>
+                      <div className="box"><img src="../images/step3-suryanamaskar.jpg" alt="" /><span><a href="/heart/suryanamaskar">Suryanamaskar</a></span></div>
+                      <div className="box"><img src="../images/step1-suryanamaskar.jpg" alt="" /><span><a href="/heart/suryanamaskar">Tadasana</a></span></div>
+                      <div className="box"><img src="../images/varkasana.jpg" alt="" /><span><a href="/heart/suryanamaskar">Tree Pose</a></span></div>
                 </div>
             </div>
         </div>

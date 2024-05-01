@@ -1,6 +1,5 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import './Activity.css';
-
 
 const Activity = () => {
   const songRef = useRef(null);
@@ -8,19 +7,7 @@ const Activity = () => {
   const outlineRef = useRef(null);
   const videoRef = useRef(null);
   const timeDisplayRef = useRef(null);
-  let fakeDuration = 600;
-
-  const checkPlaying = () => {
-    if (songRef.current.paused) {
-      songRef.current.play();
-      videoRef.current.play();
-      playRef.current.src = "/svg/pause.svg";
-    } else {
-      songRef.current.pause();
-      videoRef.current.pause();
-      playRef.current.src = "/svg/play.svg";
-    }
-  };
+  const [fakeDuration, setFakeDuration] = useState(600);
 
   useEffect(() => {
     const circle = outlineRef.current;
@@ -35,7 +22,7 @@ const Activity = () => {
       checkPlaying();
     });
 
-    songRef.current.ontimeupdate = () => {
+    const updateTime = () => {
       if (!songRef.current.duration) return;
 
       let currentTime = songRef.current.currentTime;
@@ -45,7 +32,7 @@ const Activity = () => {
 
       let progress = circumference - (currentTime / fakeDuration) * circumference;
       circle.style.strokeDashoffset = progress;
-      timeDisplayRef.current.textContent = `${minutes}:${seconds}`;
+      timeDisplayRef.current.textContent = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
 
       if (currentTime >= fakeDuration) {
         songRef.current.pause();
@@ -55,24 +42,50 @@ const Activity = () => {
       }
     };
 
-    // Update fakeDuration when the audio's duration is known
+    songRef.current.ontimeupdate = updateTime;
     songRef.current.onloadedmetadata = () => {
-      fakeDuration = songRef.current.duration;
-      timeDisplayRef.current.textContent = `${Math.floor(fakeDuration / 60)}:${Math.floor(fakeDuration % 60)}`;
+      setFakeDuration(songRef.current.duration);
+      updateTime(); // Update time display when duration is known
     };
-  }, []);
+
+    return () => {
+      songRef.current.ontimeupdate = null; // Clear timeupdate listener
+    };
+  }, [fakeDuration]); // Ensure useEffect runs when fakeDuration changes
+
+  const checkPlaying = () => {
+    if (songRef.current.paused) {
+      songRef.current.play();
+      videoRef.current.play();
+      playRef.current.src = "/svg/pause.svg";
+    } else {
+      songRef.current.pause();
+      videoRef.current.pause();
+      playRef.current.src = "/svg/play.svg";
+    }
+  };
 
   const selectSound = (e) => {
-    songRef.current.src = e.target.getAttribute('data-sound');
-    videoRef.current.src = e.target.getAttribute('data-video');
+    console.log("Clicked element:", e.target);
+    console.log(e.target.getAttribute('data-sound'));
+    const soundSrc = e.target.getAttribute('data-sound');
+    const videoSrc = e.target.getAttribute('data-video');
+
+    console.log("Selected sound:", soundSrc);
+    console.log("Selected video:", videoSrc);
+    songRef.current.src = soundSrc;
+    videoRef.current.src = videoSrc;
+
     checkPlaying();
   };
 
   const selectTime = (e) => {
-    fakeDuration = e.target.getAttribute('data-time');
-    timeDisplayRef.current.textContent = `${Math.floor(fakeDuration / 60)}:${Math.floor(fakeDuration % 60)}`;
+    setFakeDuration(parseInt(e.target.getAttribute('data-time')));
+    let minutes = Math.floor(fakeDuration / 60);
+    let seconds = Math.floor(fakeDuration % 60);
+    seconds = seconds < 10 ? `0${seconds}` : seconds; // Add padding zero if seconds less than 10
+    timeDisplayRef.current.textContent = `${minutes}:${seconds}`;
   };
-
 
   return (
     <div className="app">
@@ -92,8 +105,13 @@ const Activity = () => {
         <audio className="song" ref={songRef}>
           <source src="/sounds/rain.mp3" />
         </audio>
-        <img src="/svg/play.svg" alt="play" className="play" ref={playRef} />
-
+        <img
+          src="/svg/play.svg"
+          alt="play"
+          className="play mb-[23vh] ml-2"
+          ref={playRef}
+           // bg-pink-400 in Tailwind CSS
+        />
         <svg className="track-outline" width="453" height="453" viewBox="0 0 453 453" fill="none"
           xmlns="http://www.w3.org/2000/svg" ref={outlineRef}>
           <circle cx="226.5" cy="226.5" r="216.5" stroke="white" strokeWidth="20" />
@@ -103,7 +121,7 @@ const Activity = () => {
           xmlns="http://www.w3.org/2000/svg">
           <circle cx="226.5" cy="226.5" r="216.5" stroke="#018EBA" strokeWidth="20" />
         </svg>
-        <h3 className="time-display" ref={timeDisplayRef}> 0:00 </h3>
+        <h3 className="time-display " ref={timeDisplayRef}> 0:00 </h3>
       </div>
 
       <div className="sound-picker">
@@ -113,7 +131,9 @@ const Activity = () => {
         <button onClick={selectSound} data-sound="/sounds/beach.mp3" data-video="/video/beach.mp4">
           <img src="/svg/beach.svg" alt="beach" />
         </button>
+
       </div>
+
     </div>
   );
 }

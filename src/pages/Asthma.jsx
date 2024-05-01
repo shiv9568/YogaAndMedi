@@ -5,7 +5,7 @@ const Asthma = () => {
       <div>
           <div className="title">
               <div id="mainPage">
-                  <a href="../index.html">
+                  <a href="/">
                       <span>
                           &#x2190;
                       </span>
@@ -49,8 +49,8 @@ const Asthma = () => {
                   <h2>Yoga poses for people with Asthma: </h2>
 
                   <div className="asanaCollection">
-                      <div className="box"><img src="../images/step7-suryanamaskar.jpg" alt="Image is not Available" /><span><a href="../html/cobra.html">Cobra Pose</a></span></div>
-                      <div className="box"><img src="../images/bhastrika.jpg" alt="Image is not Available" /><span><a href="../html/pranayam.html">Pranayam</a></span></div>
+                      <div className="box"><img src="../images/step7-suryanamaskar.jpg" alt="Image is not Available" /><span><a href="/heart/cobra">Cobra Pose</a></span></div>
+                      <div className="box"><img src="../images/bhastrika.jpg" alt="Image is not Available" /><span><a href="/digestive/pranayam">Pranayam</a></span></div>
                   </div>
               </div>
           </div>
