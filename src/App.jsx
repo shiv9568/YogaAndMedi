@@ -1,6 +1,5 @@
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 import React, { Component, useEffect, useState } from "react";
-
 import Activity from './component/Activity';
 import Aliment from './pages/Aliment';
 import Anxiety from './pages/Anxiety';
@@ -30,14 +29,11 @@ import Teacher5 from './pages/Teacher5';
 import Teacher6 from './pages/Teacher6';
 import Pricing from './component/Pricing';
 import Classes from './component/Classes';
-
 import Pranayam from './pages/Pranayam';
 import Surya from './pages/Surya';
 import Cobra from './pages/Cobra';
 import Balasan from './pages/Balasan';
 import Pari from './pages/Pari';
-
-
 
 function App() {
  
