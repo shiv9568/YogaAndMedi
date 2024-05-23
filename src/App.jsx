@@ -1,6 +1,8 @@
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 import React, { Component, useEffect, useState } from "react";
 import Activity from './component/Activity';
+import Login from "./Authenti/Login"
+import Signin from "./Authenti/Signin"
 import Aliment from './pages/Aliment';
 import Anxiety from './pages/Anxiety';
 import Article from './component/Article';
@@ -34,13 +36,16 @@ import Surya from './pages/Surya';
 import Cobra from './pages/Cobra';
 import Balasan from './pages/Balasan';
 import Pari from './pages/Pari';
+import { RecoilRoot } from 'recoil';
 
 function App() {
  
   return (
     <>
-    <Navbar/>
+      <RecoilRoot>
+     
       <Router>
+        <Navbar />
         <Routes>
           <Route path={"/digestive"} element={<Digestive />}/>
           <Route path={"/heart"} element={<Heart />}/>
@@ -69,10 +74,14 @@ function App() {
           <Route path={"/digestive/balasana"} element={<Balasan />} />
           <Route path={"/digestive/paripurnanavasana"} element={<Pari />} />
           <Route path={"/digestive/pranayam"} element={<Pranayam />} />
-
+          <Route path={"/login"} element={<Login />} />
+          <Route path={"/signin"} element={<Signin />} />
           <Route path={"/booktoday"} element={<Book />}/>
           <Route path={"/pricing"} element={<Pricing />}/>
           <Route path={"/classes"} element={<Classes />}/>
+         
+          
+          
           <Route path={"/"} element={
             <>
               <Home/>
@@ -86,6 +95,7 @@ function App() {
           }/>
         </Routes>
       </Router>
+      </RecoilRoot>
     </>
   )
 }
